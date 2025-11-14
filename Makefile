@@ -4,7 +4,7 @@
 .PHONY : onstartup clean build
 PYTHON=.venv/bin/python
 onstartup : 
-	docker build -t game:dev . 
+	docker build -t game:dev . && docker compose up 
 	# . .vscode/scripts.sh && onstartup
 
 clean : 
