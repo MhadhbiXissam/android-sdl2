@@ -13,5 +13,15 @@
           "command": "workbench.action.tasks.runTask",
           "args": "Run make onstartup"
         }
-      ]
+      ] , 
+      "terminal.integrated.defaultProfile.linux": "WithCommand",
+      "terminal.integrated.profiles.linux": {
+          "WithCommand": {
+              "path": "/bin/bash",
+              "args": [
+                  "-c",
+                  "docker exec -it app_display bash; exec bash"
+              ]
+          }
+      }
 }
