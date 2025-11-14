@@ -1,0 +1,13 @@
+services:
+  app:
+    image: game:dev
+    container_name: app_display
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=${XAUTHORITY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XAUTHORITY}:${XAUTHORITY}:ro
+    network_mode: host
+    stdin_open: true
+    tty: true
