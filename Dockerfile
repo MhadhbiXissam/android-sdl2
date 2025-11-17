@@ -104,7 +104,6 @@ run rm SDL3-devel-3.2.26-android.zip
 run wget -q  https://github.com/libsdl-org/SDL/releases/download/release-3.2.26/SDL3-3.2.26.zip
 run unzip SDL3-3.2.26.zip
 run rm SDL3-3.2.26.zip
-run python /root/SDL3-3.2.26/build-scripts/create-android-project.py --variant copy --output /root com.sdl3.game /root/SDL3-3.2.26/test/testgles2.c
 ## create minimal example test 
 run python /root/SDL3-3.2.26/build-scripts/create-android-project.py --variant copy --output /root/workspace com.testsdl3es.game /root/SDL3-3.2.26/test/testgles2.c /root/SDL3-3.2.26/src/test/*
 run cd /root/com.testsdl3es.game && ./gradlew installDebug
