@@ -1,13 +1,25 @@
+
+
 services:
   app:
-    image: game:dev
-    container_name: app_display
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: engine:issam
     environment:
       - DISPLAY=${DISPLAY}
       - XAUTHORITY=${XAUTHORITY}
+      - GIT_USER=${GIT_USER}
+      - GIT_EMAIL=${GIT_EMAIL}
+      - GIT_TOKEN=${GIT_TOKEN}
+    ports:
+      - "7100:7000"  # maps container port 7000 to host port 7000
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY}:${XAUTHORITY}:ro
-    network_mode: host
+      - /dev/bus/usb:/dev/bus/usb
+      - ./workspace:/root/workspace
     stdin_open: true
     tty: true
+    devices:
+      - "/dev/dri:/dev/dri"
